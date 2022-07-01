@@ -33,6 +33,7 @@ img {
 .holder2 {
     height: 100vh;
     width: 50vw;
+    /* background-color: red !important; */
 }
 
 .form {
@@ -41,14 +42,14 @@ img {
 
 div.inhold {
     /* background-color: rebeccapurple; */
-    height: 65vh;
+    height: 80vh;
 }
 
 input {
     border-color: black !important;
     font-family: 'Inter', serif !important;
     height: 8vh !important;
-    width: 25vw !important;
+    width: 27vw !important;
 }
 
 label {
@@ -78,8 +79,13 @@ button:focus {
 
 .top {
     font-size: 2.5rem;
-    padding-left: 15%;
-    /* background-color: gold; */
+    width: 28vw !important;
+    height: 40vh;
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    /* background-color: beige; */
+    /* background-color: #B0AF4A; */
 }
 
 .topb {
@@ -87,7 +93,6 @@ button:focus {
     font-size: 1rem;
     display: flex;
     justify-content: start;
-    /* background-color: aqua; */
 }
 
 a {
