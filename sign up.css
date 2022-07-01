@@ -80,12 +80,10 @@ button:focus {
 .top {
     font-size: 2.5rem;
     width: 28vw !important;
-    height: 40vh;
+    height: 16vh;
     display: flex;
     justify-content: start;
     align-items: flex-end;
-    /* background-color: beige; */
-    /* background-color: #B0AF4A; */
 }
 
 .topb {
