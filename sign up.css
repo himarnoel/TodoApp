@@ -49,7 +49,7 @@ input {
     border-color: black !important;
     font-family: 'Inter', serif !important;
     height: 8vh !important;
-    width: 25vw !important;
+    width: 27vw !important;
 }
 
 label {
@@ -65,7 +65,7 @@ input:focus {
 
 button {
     height: 8vh !important;
-    width: 20vw !important;
+    width: 15vw !important;
     border: none !important;
     background: linear-gradient(98.23deg, #E7E656 -4.35%, rgba(231, 230, 86, 0.36) 120.66%);
     box-shadow: inset 9px 9px 12px rgba(208, 208, 109, 0.5);
@@ -79,6 +79,22 @@ button:focus {
 
 .top {
     font-size: 2.5rem;
-    padding-left: 15%;
+    width: 28vw !important;
+    height: 16vh;
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
     /* background-color: gold; */
+}
+
+.topb {
+    width: 28vw !important;
+    font-size: 1rem;
+    display: flex;
+    justify-content: start;
+    /* background-color: aqua; */
+}
+
+a {
+    color: #B0AF4A !important;
 }
