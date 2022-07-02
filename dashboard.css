@@ -10,6 +10,7 @@ body {
     border: thin solid;
     /* width: fit-content; */
     /* max-width: 300px !important; */
+    width: 20vw !important;
     height: 100vh;
     background: #303032;
 }
