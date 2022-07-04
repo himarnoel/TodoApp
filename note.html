@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="onl()">
     <div id="left-body">
         <div id="upper">
             <div>
@@ -40,38 +40,86 @@
         <div class="head m-auto justify-content-evenly d-flex flex-column align-items-center">
             <div class="mb-3 form">
                 <label for="exampleFormControlInput1" class="form-label ">Title</label>
-                <input type="email" class="form-control email" id="lname" placeholder="Enter Note Title">
+                <input type="email" class="form-control email" id="title" placeholder="Enter Note Title">
             </div>
 
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="This is my first Note"></textarea>
+                <textarea class="form-control" id="content" rows="3" placeholder="This is my first Note"></textarea>
             </div>
-            <button type="button" class="btn btn-primary fs-5" onclick="">Create Note</button>
+            <button type="button" class="btn btn-primary fs-5" onclick="addNote()">Create Note</button>
         </div>
-        <div class="notes h-50 w-100  mx-auto row overflow-auto">
-            <div class="container cal bg-success col-2 card">
-                <div class="fs-3 text-light">Note</div>
-            </div>
-            <div class="container cal bg-success col-2 card">
-                <div class="fs-3 text-light">Note</div>
-            </div>
-            <div class="container cal bg-success col-2 card">
-                <div class="fs-3 text-light">Note</div>
-            </div>
-            <div class="container cal bg-success col-2 card">
-                <div class="fs-3 text-light">Note</div>
-            </div>
-            <div class="container cal bg-success col-2 card">
-                <div class="fs-3 text-light">Note</div>
-            </div>
-            <div class="container cal bg-success col-2 card">
-                <div class="fs-3 text-light">Note</div>
-            </div>
+        <div class="note h-50    mx-auto row overflow-auto" id="holder">
 
+            <!-- <div class="container cal bg-success col-2 card mb-2 d-flex justify-content-around">
+                <div class="fs-3 text-light">Note</div>
+                <p class="text-light">This is my first Notes</p>
+
+                <div class="container  d-flex justify-content-end  ">
+                    <div><button class="btn edit me-3">Edit</button> <button class="btn delete">Del</button> </div>
+                </div>
+            </div> -->
 
         </div>
+
+    </div>
     </div>
 </body>
+<script>
+    var val = JSON.parse(localStorage.getItem("data"));
+    let com, obj;
+    for (var i = 0; i < val.length; i++) {
+        if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+            com = val[i].notes
+        }
+    }
+
+    function onl() {
+        for (var i = 0; i < com.length; i++) {
+            console.log(com[i].title);
+            holder.innerHTML += `<div class="container cal bg-success col-2 card mb-2 d-flex justify-content-around">
+                <div class="fs-3 text-light">${com[i].title}</div>
+                <p class="text-light">${com[i].notes}</p>
+
+                <div class="container  d-flex justify-content-end  ">
+                    <div><button class="btn edit me-3">Edit</button> <button class="btn delete">Del</button> </div>
+                </div>
+            </div>`
+        }
+
+    }
+
+
+    function addNote() {
+        obj = {
+            title: title.value,
+            notes: content.value,
+        }
+        com.push(obj);
+        holder.innerHTML = "";
+        for (var i = 0; i < com.length; i++) {
+            console.log(com[i].title);
+            holder.innerHTML += `<div class="container cal bg-success col-2 card mb-2 d-flex justify-content-around">
+                <div class="fs-3 text-light">${com[i].title}</div>
+                <p class="text-light">${com[i].notes}</p>
+
+                <div class="container  d-flex justify-content-end  ">
+                    <div><button class="btn edit me-3">Edit</button> <button class="btn delete">Del</button> </div>
+                </div>
+            </div>`
+        }
+
+
+        title.value = "";
+        content.value = "";
+        for (var i = 0; i < val.length; i++) {
+            if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+                val[i].notes = com;
+                console.log(val[i].notes);
+            }
+        }
+        localStorage.data = JSON.stringify(val);
+    }
+</script>
 
 </html>

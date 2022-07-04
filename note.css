@@ -134,3 +134,34 @@ button:focus {
     width: 25vw !important;
     background-color: #303032 !important;
 }
+
+.note {
+    width: 80vw !important;
+}
+
+.edit,
+.delete {
+    height: 5vh !important;
+    width: 5vw !important;
+    background: #0D6EFD;
+    box-shadow: none;
+    color: white;
+    font-size: 0.9rem !important;
+    padding-bottom: 10% !important;
+}
+
+.delete,
+.delete:hover {
+    background-color: #DC3545 !important;
+}
+
+.edit:hover,
+.delete:hover {
+    height: 5vh !important;
+    width: 5vw !important;
+    background: #0D6EFD;
+    box-shadow: none;
+    color: white;
+    font-size: 0.9rem !important;
+    padding-bottom: 10% !important;
+}
