@@ -29,21 +29,17 @@
         <div class="inhold d-flex flex-column align-items-center justify-content-evenly">
             <div class="mb-3 form">
                 <label for="exampleFormControlInput1" class="form-label ">Email address</label>
-                <input type="email" class="form-control email" id="exampleFormControlInput1" placeholder="name@example.com">
+                <input type="email" class="form-control email" id="em" placeholder="name@example.com">
             </div>
             <div class="mb-3 form">
                 <label for="exampleFormControlInput1" class="form-label ">Password</label>
-                <input type="password" class="form-control email" id="exampleFormControlInput1" placeholder="Enter your password">
+                <input type="password" class="form-control email" id="pas" placeholder="Enter your password">
             </div>
             <button type="button" class="btn btn-primary fs-3" onclick="login()">Login</button>
         </div>
     </div>
 </body>
 <script>
-    // function clicki() {
-    //     location.href = "Dashboard.html";
-    // }
-
     function login() {
         let val = JSON.parse(localStorage.getItem("data"));
         for (const k of val) {
