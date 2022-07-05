@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
-    <!-- <link rel="stylesheet" href="dashboard.css"> -->
     <link rel="stylesheet" href="todo.css">
     <title>Document</title>
 </head>
 
-<body>
+<body onload="onlo()">
 
     <div id="left-body">
         <div id="upper">
@@ -61,6 +60,18 @@
         }
     }
 
+    function onlo() {
+        over.innerHTML = "";
+        for (var i = com.length - 1; i >= 0; i--) {
+            console.log(com[i]);
+            over.innerHTML += ` <div class="task d-flex justify-content-around align-items-center mx-auto mb-4 mt-4 ">
+                <p>${com[i]}</p>
+                <div> <button class="btn edit me-3">Edit</button> <button class="btn delete" onclick='get()'>Delete</button></div>
+            </div>`
+        }
+
+    }
+
     function get() {
         alert("work");
     }
@@ -69,7 +80,7 @@
         if (todo.value != "") {
             com.push(todo.value);
             over.innerHTML = "";
-            for (var i = 0; i < com.length; i++) {
+            for (var i = com.length - 1; i >= 0; i--) {
                 console.log(com[i]);
                 over.innerHTML += ` <div class="task d-flex justify-content-around align-items-center mx-auto mb-4 mt-4 ">
                 <p>${com[i]}</p>
@@ -77,6 +88,8 @@
             </div>`
             }
         }
+
+
 
 
 
