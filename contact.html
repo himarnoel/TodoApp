@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body id=bod>
     <div id="left-body">
         <div id="upper">
             <div>
@@ -20,7 +20,7 @@
         <div id="list">
             <ul>
                 <li class="fs-5"><a href="Dashboard.html">Dashboard</a></li>
-                <li class="fs-5"><a href="">Contacts</a></li>
+                <li class="fs-5"><a href="contact.html">Contacts</a></li>
                 <li class="fs-5"><a href="todo.html">To-Do List</a></li>
                 <li class="fs-5"><a href="note.html">Notes</a></li>
                 <li class="fs-5"><a href="">Document</a></li>
@@ -37,9 +37,45 @@
         <div id="circle4"></div>
     </div>
     <div class="container side">
-
-        <button type="button" class="btn btn-primary">Primary</button>
+        <div class="hold row mx-auto mt-3">
+            <div class="col-3">
+                <button type="button" class="btn btn-primary fs-2" onclick="add()">Add <br>Contact</button>
+            </div>
+            <div class="col-3">
+                <div class="card cardi">fa</div>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary">Primary</button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary">Primary</button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary">Primary</button>
+            </div>
+        </div>
     </div>
 </body>
+<script>
+    const add = () => {
+        bod.innerHTML = `<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>`
+    }
+</script>
 
 </html>
