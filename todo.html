@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="onl()">
 
     <div id="left-body">
         <div id="upper">
@@ -41,40 +41,20 @@
     <div class="right">
 
         <div class="container h-25 w-75 form  d-flex justify-content-evenly align-items-center">
-            <input type="text" class="form-control email" placeholder="Add New Task">
-            <button class="btn btn-primary">Add</button>
+            <input id="inp" type="text" class="form-control email" placeholder="Add New Task">
+            <button onclick="add()" class="btn btn-primary">Add</button>
         </div>
 
-        <div class="over  mx-auto ">
-            <div class="task d-flex justify-content-around align-items-center mx-auto mb-4 mt-4 ">
+        <div class="over  mx-auto " id="poxi">
+            <!-- <div class="task d-flex justify-content-around align-items-center mx-auto mb-4 mt-4 ">
                 <p>jdfasuhdfkhsdjfa</p>
                 <div> <button class="btn edit me-3">Edit</button> <button class="btn delete">Delete</button></div>
-            </div>
-            <div class="task d-flex justify-content-around align-items-center ">
-                <p>jdfasuhdfkhsdjfa</p>
-                <div> <button class="btn edit me-3">Edit</button> <button class="btn delete">Delete</button></div>
-            </div>
-
-            <div class="task d-flex justify-content-around align-items-center ">
-                <p>jdfasuhdfkhsdjfa</p>
-                <div> <button class="btn edit me-3">Edit</button> <button class="btn delete">Delete</button></div>
-            </div>
-
-            <div class="task d-flex justify-content-around align-items-center ">
-                <p>jdfasuhdfkhsdjfa</p>
-                <div> <button class="btn edit me-3">Edit</button> <button class="btn delete">Delete</button></div>
-            </div>
-
-
+            </div> -->
         </div>
 
     </div>
 
 </body>
-<script>
-    function add() {
-        let val = JSON.parse(localStorage.getItem("data"));
-    }
-</script>
+<script src="todo.js"></script>
 
 </html>
