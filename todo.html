@@ -41,20 +41,53 @@
     <div class="right">
 
         <div class="container h-25 w-75 form  d-flex justify-content-evenly align-items-center">
-            <input id="inp" type="text" class="form-control email" placeholder="Add New Task">
-            <button onclick="add()" class="btn btn-primary">Add</button>
+            <input type="text" class="form-control email" placeholder="Add New Task" id="todo">
+            <button class="btn btn-primary" onclick="addNote()">Add</button>
         </div>
 
-        <div class="over  mx-auto " id="poxi">
-            <!-- <div class="task d-flex justify-content-around align-items-center mx-auto mb-4 mt-4 ">
-                <p>jdfasuhdfkhsdjfa</p>
-                <div> <button class="btn edit me-3">Edit</button> <button class="btn delete">Delete</button></div>
-            </div> -->
+        <div class="over  mx-auto " id="over">
+
         </div>
 
     </div>
 
 </body>
-<script src="todo.js"></script>
+<script>
+    var val = JSON.parse(localStorage.getItem("data"));
+    let com, obj;
+    for (var i = 0; i < val.length; i++) {
+        if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+            com = val[i].todo
+        }
+    }
+
+    function get() {
+        alert("work");
+    }
+
+    function addNote() {
+        if (todo.value != "") {
+            com.push(todo.value);
+            over.innerHTML = "";
+            for (var i = 0; i < com.length; i++) {
+                console.log(com[i]);
+                over.innerHTML += ` <div class="task d-flex justify-content-around align-items-center mx-auto mb-4 mt-4 ">
+                <p>${com[i]}</p>
+                <div> <button class="btn edit me-3">Edit</button> <button class="btn delete" onclick='get()'>Delete</button></div>
+            </div>`
+            }
+        }
+
+
+
+        for (var i = 0; i < val.length; i++) {
+            if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+                val[i].todo = com;
+                console.log(val[i].todo);
+            }
+        }
+        localStorage.data = JSON.stringify(val);
+    }
+</script>
 
 </html>
