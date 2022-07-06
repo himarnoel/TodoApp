@@ -1,9 +1,7 @@
 var val = JSON.parse(localStorage.getItem("data"));
-var mail = JSON.parse(localStorage.getItem("email"));
-
 let com, obj;
 for (var i = 0; i < val.length; i++) {
-    if (val[i].email == mail) {
+    if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
         com = val[i].notes
     }
 }
@@ -47,10 +45,27 @@ function addNote() {
     title.value = "";
     content.value = "";
     for (var i = 0; i < val.length; i++) {
-        if (val[i].email == mail) {
+        if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
             val[i].notes = com;
             console.log(val[i].notes);
         }
     }
     localStorage.data = JSON.stringify(val);
 }
+
+// function edit(){
+//     console.log("i M")
+//     var stuff = JSON.parse(localStorage.getItem("data"))
+//     title.value = stuff[i].title
+//     content.value = stuff[i].notes
+// }
+
+// function updat() {
+//     var peop = JSON.parse(localStorage.getItem("dataBase"))
+//     peop.splice(index, 1, {
+//         title: title.value,
+//         notes: password.value
+//     })
+//     localStorage.setItem("dataBase", JSON.stringify(peop))
+//     location.reload()
+// }
