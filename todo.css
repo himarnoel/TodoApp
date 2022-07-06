@@ -146,3 +146,8 @@ button:focus {
     overflow-y: auto !important;
     /* background-color: #0D6EFD; */
 }
+/* #box{
+    border: thin solid;
+    display: grid !important;
+    gap: 20px;
+} */
