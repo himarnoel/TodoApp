@@ -55,7 +55,7 @@
             <div class="modal-content down ">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Note</h5>
-                    <button type="button" class="btn-close bt" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close bt bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3 form">
@@ -75,9 +75,11 @@
 <script src="/bootstrap-5.2.0-beta1-dist/js/bootstrap.js"></script>
 <script>
     var val = JSON.parse(localStorage.getItem("data"));
+    var mail = JSON.parse(localStorage.getItem("email"));
+
     let com, obj;
     for (var i = 0; i < val.length; i++) {
-        if (val[i].email == "eto@thesolecompany.com") {
+        if (val[i].email == mail) {
             com = val[i].todo
         }
     }
@@ -97,7 +99,7 @@
         let filteredArray = com.filter((item, ind) => index != ind);
         com = filteredArray;
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "eto@thesolecompany.com") {
+            if (val[i].email == mail) {
                 val[i].todo = com;
                 console.log(val[i].todo);
             }
@@ -110,13 +112,12 @@
     const toEdit = (i) => {
         ind = i;
         editToDo.value = com[i];
-        // over.innerHTML = "";
-        // onl();
+
     }
     const save = () => {
         com[ind] = editToDo.value;
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "eto@thesolecompany.com") {
+            if (val[i].email == mail) {
                 val[i].todo = com;
                 console.log(val[i].todo);
             }
@@ -125,6 +126,7 @@
         over.innerHTML = "";
         onl();
     }
+
     function addNote() {
         if (todo.value != "") {
             com.push(todo.value);
@@ -138,12 +140,12 @@
             }
         }
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "eto@thesolecompany.com") {
+            if (val[i].email == mail) {
                 val[i].todo = com;
                 console.log(val[i].todo);
             }
         }
-      
+
         localStorage.data = JSON.stringify(val);
         over.innerHTML = "";
         onl();
