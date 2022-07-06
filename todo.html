@@ -20,17 +20,17 @@
         </div>
         <div id="list">
             <ul>
-                <li class="fs-5"><a href="#">Dashboard</a></li>
-                <li class="fs-5"><a href="">Contacts</a></li>
-                <li class="fs-5"><a href="">To-Do List</a></li>
-                <li class="fs-5"><a href="">Notes</a></li>
-                <li class="fs-5"><a href="">Document</a></li>
+                <li class="fs-5"><a href="Dashboard.html">Dashboard</a></li>
+                <li class="fs-5"><a href="contact.html">Contacts</a></li>
+                <li class="fs-5"><a href="todo.html">To-Do List</a></li>
+                <li class="fs-5"><a href="note.html">Notes</a></li>
+
             </ul>
             <hr>
             <div>
                 <ul>
-                    <li class="fs-5"><a href="">About</a></li>
-                    <li class="fs-5"><a hr xef="">Log Out</a></li>
+
+                    <li class="fs-5"><a href="Sign up.html">Log Out</a></li>
                 </ul>
             </div>
         </div>
@@ -55,7 +55,7 @@
     var val = JSON.parse(localStorage.getItem("data"));
     let com, obj;
     for (var i = 0; i < val.length; i++) {
-        if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+        if (val[i].email == "eto@thesolecompany.com") {
             com = val[i].todo
         }
     }
@@ -94,7 +94,7 @@
 
 
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+            if (val[i].email == "eto@thesolecompany.com") {
                 val[i].todo = com;
                 console.log(val[i].todo);
             }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="note.css">
     <title>Document</title>
 </head>
@@ -37,10 +38,11 @@
         <div id="circle4"></div>
     </div>
     <div class="right w-100 d-flex flex-column justify-content-evenly">
+
         <div class="head m-auto justify-content-evenly d-flex flex-column align-items-center">
             <div class="mb-3 form">
                 <label for="exampleFormControlInput1" class="form-label ">Title</label>
-                <input type="email" class="form-control email" id="title" placeholder="Enter Note Title">
+                <input type="name" class="form-control email" id="title" placeholder="Enter Note Title">
             </div>
 
             <div class="mb-3">
@@ -56,54 +58,93 @@
 
     </div>
     </div>
+
     <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog text-light ">
+            <div class="modal-content down ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Note</h5>
+                    <button type="button" class="btn-close bt" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 form">
+                        <label for="exampleFormControlInput1" class="form-label ">Title</label>
+                        <input type="name" class="form-control email" id="etitle" placeholder="Enter Note Title">
+                    </div>
+                    <br><br>
+                    <div class="">
+                        <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                        <textarea class="form-control" id="econtent" rows="3" placeholder="This is my first Note"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="save()">Save changes</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-         <input type="text" class="form-control" id="fname">
-         <input type="text"class="form-control" id="lname">
-         <input type="text"class="form-control" id="email">
-         <input type="text"class="form-control" id="password">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" onclick="updat()" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
-  <script src="/bootstrap-5.2.0-beta1-dist/js/bootstrap.js"></script>
-  <script src="note.js"></script>
 </body>
 <script>
     var val = JSON.parse(localStorage.getItem("data"));
     let com, obj;
     for (var i = 0; i < val.length; i++) {
-        if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+        if (val[i].email == "eto@thesolecompany.com") {
             com = val[i].notes
         }
     }
 
+
     function onl() {
         for (var i = com.length - 1; i >= 0; i--) {
-            console.log(com[i].title);
+
             holder.innerHTML += `<div class="container cal bg-success col-2 card mb-2 d-flex justify-content-around">
                 <div class="fs-3 text-light">${com[i].title}</div>
                 <p class="text-light">${com[i].notes}</p>
 
                 <div class="container  d-flex justify-content-end  ">
-                    <div><button class="btn edit me-3">Edit</button> <button class="btn delete">Del</button> </div>
+                    <div><button class="btn edit me-3" onclick= 'edit(${i})'  data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button> <button class="btn delete" onclick= 'del(${i})'>Del</button> </div>
                 </div>
             </div>`
         }
 
     }
+    // let filteredArray =myArray2.filter((item,ind)=>index!=ind)
+    // myArray2 = filteredArray
+    const del = (index) => {
+        let arr = com.filter((item, ind) => index != ind);
+        com = arr;
+        for (var i = 0; i < val.length; i++) {
+            if (val[i].email == "eto@thesolecompany.com") {
+                val[i].notes = com;
+                console.log(val[i].notes);
+            }
+        }
+        holder.innerHTML = "";
+        onl()
+        localStorage.data = JSON.stringify(val);
 
+    }
+    let ind;
+    const edit = (i) => {
+        ind = i;
+        etitle.value = com[i].title;
+        econtent.value = com[i].notes;
+    }
+    const save = () => {
+        com[ind].title = etitle.value;
+        com[ind].notes = econtent.value;
+        for (var i = 0; i < val.length; i++) {
+            if (val[i].email == "eto@thesolecompany.com") {
+                val[i].notes = com;
+                console.log(val[i].notes);
+            }
+        }
+        localStorage.data = JSON.stringify(val);
+        holder.innerHTML = "";
+        onl();
+    }
 
     function addNote() {
         obj = {
@@ -112,18 +153,18 @@
         }
         com.push(obj);
         holder.innerHTML = "";
-        for (var i = com.length - 1; i >= 0; i--) {
-            console.log(com[i].title);
-            holder.innerHTML += `<div class="container cal bg-success col-2 card mb-2 d-flex justify-content-around">
-                <div class="fs-3 text-light">${com[i].title}</div>
-                <p class="text-light">${com[i].notes}</p>
+        onl()
+        title.value = "";
+        content.value = "";
+        for (var i = 0; i < val.length; i++) {
+            if (val[i].email == "eto@thesolecompany.com") {
+                val[i].notes = com;
+                console.log(val[i].notes);
+            }
+        }
+        localStorage.data = JSON.stringify(val);
 
-                <div class="container  d-flex justify-content-end  ">
-                    <div><button class="btn edit me-3">Edit</button> <button class="btn delete">Del</button> </div>
-                </div>
-            </div>`
-        }}
-
+    }
 </script>
 
 </html>
