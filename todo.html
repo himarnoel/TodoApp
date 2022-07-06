@@ -49,8 +49,30 @@
         </div>
 
     </div>
-
+    <!-- Modal -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog text-light ">
+            <div class="modal-content down ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Note</h5>
+                    <button type="button" class="btn-close bt" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 form">
+                        <label for="exampleFormControlInput1" class="form-label ">Enter New value</label>
+                        <input type="name" class="form-control email" id="editToDo" placeholder="Enter Note Title">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="save()">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="/bootstrap-5.2.0-beta1-dist/js/bootstrap.js"></script>
 <script>
     var val = JSON.parse(localStorage.getItem("data"));
     let com, obj;
@@ -61,12 +83,12 @@
     }
 
     function onl() {
-        over.innerHTML = "";
+        // over.innerHTML = "";
         for (var i = com.length - 1; i >= 0; i--) {
             // console.log(com[i]);
             over.innerHTML += ` <div class="task d-flex justify-content-around align-items-center mx-auto mb-4 mt-4 ">
                 <p>${com[i]}</p>
-                <div> <button class="btn edit me-3">Edit</button> <button class="btn delete" onclick='toDelete(${i})'>Delete</button></div>
+                <div> <button class="btn edit me-3" onclick='toEdit(${i})' data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button><button class="btn delete" onclick='toDelete(${i})'>Delete</button></div>
             </div>`
         }
 
@@ -84,7 +106,25 @@
         onl()
         localStorage.data = JSON.stringify(val);
     }
-
+    let ind;
+    const toEdit = (i) => {
+        ind = i;
+        editToDo.value = com[i];
+        // over.innerHTML = "";
+        // onl();
+    }
+    const save = () => {
+        com[ind] = editToDo.value;
+        for (var i = 0; i < val.length; i++) {
+            if (val[i].email == "eto@thesolecompany.com") {
+                val[i].todo = com;
+                console.log(val[i].todo);
+            }
+        }
+        localStorage.data = JSON.stringify(val);
+        over.innerHTML = "";
+        onl();
+    }
     function addNote() {
         if (todo.value != "") {
             com.push(todo.value);
@@ -97,38 +137,17 @@
             </div>`
             }
         }
-
-
-
-
-
         for (var i = 0; i < val.length; i++) {
             if (val[i].email == "eto@thesolecompany.com") {
                 val[i].todo = com;
                 console.log(val[i].todo);
             }
         }
+      
         localStorage.data = JSON.stringify(val);
+        over.innerHTML = "";
+        onl();
     }
-    // let ind;
-    // const edit = (i) => {
-    //     ind = i;
-    //     etitle.value = com[i].title;
-    //     econtent.value = com[i].notes;
-    // }
-    // const save = () => {
-    //     com[ind].title = etitle.value;
-    //     com[ind].notes = econtent.value;
-    //     for (var i = 0; i < val.length; i++) {
-    //         if (val[i].email == "eto@thesolecompany.com") {
-    //             val[i].notes = com;
-    //             console.log(val[i].notes);
-    //         }
-    //     }
-    //     localStorage.data = JSON.stringify(val);
-    //     holder.innerHTML = "";
-    //     onl();
-    // }
 </script>
 
 </html>
