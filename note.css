@@ -129,6 +129,18 @@ button:focus {
     box-shadow: 0px 0px 0px 4px rgba(176, 175, 74, 0.47) !important;
 }
 
+.bt {
+    background-color: none;
+    box-shadow: none !important;
+    color: white !important;
+}
+
+.bt:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    color: white !important;
+}
+
 .cal {
     height: 23vh !important;
     width: 25vw !important;
@@ -152,7 +164,7 @@ button:focus {
 
 .delete,
 .delete:hover {
-    background-color: #DC3545 !important;
+    background-color: #DC3545;
 }
 
 .edit:hover,
@@ -164,4 +176,8 @@ button:focus {
     color: white;
     font-size: 0.9rem !important;
     padding-bottom: 10% !important;
+}
+
+.down {
+    background-color: #2A2A2B!important;
 }
