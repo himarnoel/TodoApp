@@ -16,7 +16,7 @@
 
         <p class="logo ps-3">Produsi</p>
 
-        <img src="illus.svg" alt="">
+        <img src="Images/illus.svg" alt="">
 
     </div>
     <div class=" holder2 bg-light d-flex justify-content-evenly flex-column align-items-center">
@@ -47,38 +47,7 @@
         </div>
     </div>
 </body>
-<script>
-    let student = [];
 
-    function getPreviousValues() {
-        if (localStorage.data) {
-            student = JSON.parse(localStorage.data);
-        }
-    }
-
-    function store() {
-
-        let fn = fname.value;
-        let ln = lname.value;
-        let em = email.value;
-        let pas = pass.value;
-
-        let obj = {
-            firstname: fname.value,
-            Lastname: lname.value,
-            email: email.value,
-            todo: [],
-            notes: [],
-            contacts: [],
-            Password: pass.value
-        }
-
-        student.push(obj);
-        localStorage.data = JSON.stringify(student)
-        location.href = "index.html"
-
-    }
-</script>
-<script src="note.js"></script>
+<script src="signup.js"></script>
 
 </html>

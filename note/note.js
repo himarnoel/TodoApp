@@ -52,20 +52,3 @@ function addNote() {
     }
     localStorage.data = JSON.stringify(val);
 }
-
-// function edit(){
-//     console.log("i M")
-//     var stuff = JSON.parse(localStorage.getItem("data"))
-//     title.value = stuff[i].title
-//     content.value = stuff[i].notes
-// }
-
-// function updat() {
-//     var peop = JSON.parse(localStorage.getItem("dataBase"))
-//     peop.splice(index, 1, {
-//         title: title.value,
-//         notes: password.value
-//     })
-//     localStorage.setItem("dataBase", JSON.stringify(peop))
-//     location.reload()
-// }
