@@ -65,7 +65,7 @@
             <div class="modal-content down ">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Note</h5>
-                    <button type="button" class="btn-close bt" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close bt bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3 form">
@@ -88,9 +88,10 @@
 </body>
 <script>
     var val = JSON.parse(localStorage.getItem("data"));
+    var mail = JSON.parse(localStorage.getItem("email"));
     let com, obj;
     for (var i = 0; i < val.length; i++) {
-        if (val[i].email == "eto@thesolecompany.com") {
+        if (val[i].email == mail) {
             com = val[i].notes
         }
     }
@@ -116,7 +117,7 @@
         let arr = com.filter((item, ind) => index != ind);
         com = arr;
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "eto@thesolecompany.com") {
+            if (val[i].email == mail) {
                 val[i].notes = com;
                 console.log(val[i].notes);
             }
@@ -136,7 +137,7 @@
         com[ind].title = etitle.value;
         com[ind].notes = econtent.value;
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "eto@thesolecompany.com") {
+            if (val[i].email == mail) {
                 val[i].notes = com;
                 console.log(val[i].notes);
             }
@@ -157,7 +158,7 @@
         title.value = "";
         content.value = "";
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "eto@thesolecompany.com") {
+            if (val[i].email == mail) {
                 val[i].notes = com;
                 console.log(val[i].notes);
             }

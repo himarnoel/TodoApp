@@ -94,9 +94,10 @@
 </body>
 <script>
     var val = JSON.parse(localStorage.getItem("data"));
+    var mail = JSON.parse(localStorage.getItem("email"));
     let com, obj;
     for (var i = 0; i < val.length; i++) {
-        if (val[i].email == "eto@thesolecompany.com") {
+        if (val[i].email == mail) {
             com = val[i].contacts
         }
     }
@@ -118,7 +119,7 @@
         let arr = com.filter((item, ind) => index != ind);
         com = arr;
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "eto@thesolecompany.com") {
+            if (val[i].email == mail) {
                 val[i].contacts = com;
 
             }
@@ -129,11 +130,15 @@
 
     }
     const edit = () => {
-
+        obj = {
+            name: nam.value,
+            phone: ph.value,
+            address: add.value
+        }
     }
 
     function addNote() {
-        alert(ph.value);
+
         obj = {
             name: nam.value,
             phone: ph.value,
@@ -143,7 +148,7 @@
         holder.innerHTML = "";
         onl();
         for (var i = 0; i < val.length; i++) {
-            if (val[i].email == "eto@thesolecompany.com") {
+            if (val[i].email == mail) {
                 val[i].contacts = com;
                 console.log(val[i].notes);
             }
