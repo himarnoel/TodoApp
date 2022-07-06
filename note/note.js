@@ -1,7 +1,9 @@
 var val = JSON.parse(localStorage.getItem("data"));
+var mail = JSON.parse(localStorage.getItem("email"));
+
 let com, obj;
 for (var i = 0; i < val.length; i++) {
-    if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+    if (val[i].email == mail) {
         com = val[i].notes
     }
 }
@@ -45,7 +47,7 @@ function addNote() {
     title.value = "";
     content.value = "";
     for (var i = 0; i < val.length; i++) {
-        if (val[i].email == "olaniyi.emmanuel@lmu.ng") {
+        if (val[i].email == mail) {
             val[i].notes = com;
             console.log(val[i].notes);
         }

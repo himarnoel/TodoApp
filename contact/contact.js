@@ -63,3 +63,8 @@ function addNote() {
     ph.value = "";
     add.value = "";
 }
+
+
+function logout() {
+    localStorage.removeItem("email")
+}
