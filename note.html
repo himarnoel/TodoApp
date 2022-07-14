@@ -51,7 +51,7 @@
             </div>
             <button type="button" class="btn btn-success text-light fs-5" onclick="addNote()">Create Note</button>
         </div>
-        <div class="note h-50    mx-auto row overflow-auto" id="holder">
+        <div class="note h-50   mx-auto row " id="holder">
 
 
         </div>
@@ -172,7 +172,7 @@
         }
         localStorage.data = JSON.stringify(val);
     }else{
-        alert("Cannot enter empty note");
+        alert("Cannot enter empty note"); 
     }
 
     }

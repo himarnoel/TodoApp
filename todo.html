@@ -96,6 +96,8 @@
 
     }
     const toDelete = (index) => {
+        let ok=   confirm("Are you sure you want to delete this note");
+       if(ok){
         let filteredArray = com.filter((item, ind) => index != ind);
         com = filteredArray;
         for (var i = 0; i < val.length; i++) {
@@ -107,6 +109,8 @@
         over.innerHTML = "";
         onl()
         localStorage.data = JSON.stringify(val);
+       }
+       
     }
     let ind;
     const toEdit = (i) => {
@@ -128,18 +132,11 @@
     }
 
     function addNote() {
+        
         if (todo.value != "") {
             com.push(todo.value);
-            over.innerHTML = "";
-            for (var i = com.length - 1; i >= 0; i--) {
-                console.log(com[i]);
-                over.innerHTML += ` <div class="task d-flex justify-content-around align-items-center mx-auto mb-4 mt-4 ">
-                <p>${com[i]}</p>
-                <div> <button class="btn edit me-3">Edit</button> <button class="btn delete" onclick='toDelete(${i})'>Delete</button></div>
-            </div>`
-            }
-        }
-        for (var i = 0; i < val.length; i++) {
+            over.innerHTML = ""; 
+            for (var i = 0; i < val.length; i++) {
             if (val[i].email == mail) {
                 val[i].todo = com;
                 console.log(val[i].todo);
@@ -148,7 +145,12 @@
 
         localStorage.data = JSON.stringify(val);
         over.innerHTML = "";
-        onl();
+        todo.value != ""
+        onl();   
+        }else{
+            alert("todo cannot be empty")
+        }
+       
     }
     const logout = () => {
         localStorage.removeItem("email");

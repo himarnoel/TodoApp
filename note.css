@@ -142,13 +142,14 @@ button:focus {
 }
 
 .cal {
-    height: 23vh !important;
+    height: 29vh !important;
     width: 25vw !important;
     background-color: #303032 !important;
+    
 }
 
 .look{
-    height: 20vh !important;
+    height: 76vh !important;
     width:25vw !important ;
    
     overflow: auto;
@@ -156,6 +157,8 @@ button:focus {
 
 .note {
     width: 80vw !important;
+    overflow-y: auto !important;
+    overflow-x: hidden;
 }
 
 .edit,
